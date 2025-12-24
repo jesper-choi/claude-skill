@@ -1,152 +1,152 @@
 ---
 name: vibe-coding-feature-add
-description: 바이브코딩에 최적화된 기능 추가 스킬. 기존 코드베이스에 새로운 기능을 안전하게 추가합니다. Clean Architecture, SOLID 원칙 준수. Keywords: feature, add, implement, new, function, capability, enhancement, python, typescript, fastapi, react.
+description: Feature addition skill optimized for vibe coding. Safely adds new features to existing codebase. Follows Clean Architecture and SOLID principles. Keywords: feature, add, implement, new, function, capability, enhancement, python, typescript, fastapi, react.
 ---
 
 # Vibe Coding: Feature Add
 
 ## 🎯 Purpose
 
-기존 코드베이스에 새로운 기능을 **안전하고 일관성 있게** 추가:
-- **기존 코드 존중**: 현재 패턴과 컨벤션 유지
-- **점진적 통합**: 작은 단위로 나누어 안전하게 추가
-- **영향 최소화**: 기존 기능에 대한 사이드 이펙트 방지
-- **품질 유지**: 테스트 커버리지와 코드 품질 유지/향상
+Add new features to existing codebase **safely and consistently**:
+- **Respect Existing Code**: Maintain current patterns and conventions
+- **Incremental Integration**: Break into small units and add safely
+- **Minimize Impact**: Prevent side effects on existing features
+- **Maintain Quality**: Maintain/improve test coverage and code quality
 
 ---
 
-## 🧠 핵심 원칙: 기능 추가 시 바이브코딩
+## 🧠 Core Principles: Vibe Coding for Feature Addition
 
-### 1. 코드베이스 분석 우선 (Analyze First)
+### 1. Analyze First
 ```
-⛔ 절대 하지 말 것:
-- 기존 코드를 읽지 않고 새 기능 구현
-- 기존 패턴을 무시한 새로운 방식 도입
-- 비슷한 기존 기능이 있는지 확인하지 않음
+⛔ NEVER DO:
+- Implement new features without reading existing code
+- Introduce new patterns ignoring existing ones
+- Skip checking if similar existing features exist
 
-✅ 반드시 할 것:
-- 유사한 기존 기능 코드 찾아 읽기
-- 기존 아키텍처 패턴 파악
-- 영향받는 모든 모듈 식별
-- 기존 테스트 패턴 확인
-```
-
-### 2. 기존 패턴 재사용 (Reuse Patterns)
-```
-새 기능 추가 시:
-1. 비슷한 기존 기능은? → 복사 후 수정
-2. 사용 가능한 유틸리티는? → 재사용
-3. 기존 인터페이스 확장 가능? → 확장
-4. 새로운 패턴이 필요한가? → 최소화
+✅ ALWAYS DO:
+- Find and read similar existing feature code
+- Understand existing architecture patterns
+- Identify all affected modules
+- Check existing test patterns
 ```
 
-### 3. 점진적 통합 (Incremental Integration)
+### 2. Reuse Patterns
 ```
-큰 기능 = 작은 기능들의 조합
+When adding new features:
+1. Similar existing feature? → Copy and modify
+2. Reusable utilities? → Reuse
+3. Can extend existing interface? → Extend
+4. Need new pattern? → Minimize
+```
 
-분해 전략:
-1. 독립적으로 테스트 가능한 단위로 분해
-2. 각 단위는 1-4시간 내 완료
-3. 각 단위가 동작하는 상태 유지
-4. 점진적으로 통합
+### 3. Incremental Integration
+```
+Big feature = Combination of small features
+
+Decomposition Strategy:
+1. Break into independently testable units
+2. Each unit completes within 1-4 hours
+3. Keep each unit in working state
+4. Integrate incrementally
 ```
 
 ---
 
-## 🏗️ Feature Add 워크플로우
+## 🏗️ Feature Add Workflow
 
-### Step 1: 코드베이스 분석 (필수)
+### Step 1: Codebase Analysis (Required)
 ```markdown
-분석 체크리스트:
-- [ ] 유사한 기존 기능 코드 확인
-- [ ] 사용할 레이어별 기존 패턴 파악
-- [ ] 재사용 가능한 유틸리티/헬퍼 확인
-- [ ] 영향받는 모듈 목록 작성
-- [ ] 기존 테스트 구조 파악
+Analysis Checklist:
+- [ ] Check similar existing feature code
+- [ ] Understand existing patterns per layer
+- [ ] Check reusable utilities/helpers
+- [ ] Create list of affected modules
+- [ ] Understand existing test structure
 ```
 
-### Step 2: 설계 검토
+### Step 2: Design Review
 ```markdown
-설계 체크리스트:
-- [ ] Clean Architecture 레이어 결정
-- [ ] 필요한 인터페이스 정의
-- [ ] 의존성 주입 방식 결정
-- [ ] 에러 처리 전략 결정
-- [ ] 테스트 전략 수립
+Design Checklist:
+- [ ] Determine Clean Architecture layers
+- [ ] Define required interfaces
+- [ ] Decide dependency injection approach
+- [ ] Decide error handling strategy
+- [ ] Establish test strategy
 ```
 
-### Step 3: TDD 기반 구현
+### Step 3: TDD-Based Implementation
 ```
-각 단위별:
+For each unit:
 🔴 RED → 🟢 GREEN → 🔵 REFACTOR
 ```
 
-### Step 4: 통합 및 검증
+### Step 4: Integration and Verification
 ```markdown
-통합 체크리스트:
-- [ ] 기존 테스트 모두 통과
-- [ ] 새 테스트 모두 통과
-- [ ] 수동 E2E 테스트
-- [ ] 성능 영향 확인
+Integration Checklist:
+- [ ] All existing tests pass
+- [ ] All new tests pass
+- [ ] Manual E2E testing
+- [ ] Check performance impact
 ```
 
 ---
 
-## 📏 기능 추가 시 SOLID 체크리스트
+## 📏 SOLID Checklist for Feature Addition
 
-### 새 클래스/모듈 추가 시
-- [ ] **S**: 이 클래스는 하나의 책임만 가지는가?
-- [ ] **O**: 기존 코드 수정 없이 확장으로 구현했는가?
-- [ ] **L**: 기존 인터페이스를 위반하지 않는가?
-- [ ] **I**: 필요한 인터페이스만 구현하는가?
-- [ ] **D**: 구체 구현이 아닌 추상화에 의존하는가?
+### When Adding New Classes/Modules
+- [ ] **S**: Does this class have only one responsibility?
+- [ ] **O**: Implemented through extension without modifying existing code?
+- [ ] **L**: Does not violate existing interfaces?
+- [ ] **I**: Implements only necessary interfaces?
+- [ ] **D**: Depends on abstractions, not concrete implementations?
 
-### 기존 코드 수정 시
-- [ ] 수정이 정말 필요한가? (확장으로 해결 불가?)
-- [ ] 수정 범위가 최소인가?
-- [ ] 기존 테스트가 여전히 통과하는가?
-- [ ] 새로운 테스트가 추가되었는가?
+### When Modifying Existing Code
+- [ ] Is modification really necessary? (Can't solve through extension?)
+- [ ] Is modification scope minimal?
+- [ ] Do existing tests still pass?
+- [ ] Are new tests added?
 
 ---
 
-## 🎯 코드 품질 기준 (기능 추가)
+## 🎯 Code Quality Standards (Feature Addition)
 
-### 1. 일관성 (Consistency)
+### 1. Consistency
 ```python
-# ❌ 기존 패턴 무시
+# ❌ Ignoring existing patterns
 class NewFeature:
-    def getData(self):  # camelCase - 기존이 snake_case면 위반
+    def getData(self):  # camelCase - violation if existing is snake_case
         pass
 
-# ✅ 기존 패턴 준수
+# ✅ Following existing patterns
 class NewFeature:
-    def get_data(self):  # 기존 컨벤션 따름
+    def get_data(self):  # Following existing convention
         pass
 ```
 
-### 2. 재사용 (Reusability)
+### 2. Reusability
 ```typescript
-// ❌ 중복 구현
+// ❌ Duplicate implementation
 const formatDateNew = (date: Date) => {
   return date.toISOString().split('T')[0];
 };
 
-// ✅ 기존 유틸리티 재사용
+// ✅ Reusing existing utility
 import { formatDate } from '@/utils/date';
 const formatted = formatDate(date);
 ```
 
-### 3. 확장성 (Extensibility)
+### 3. Extensibility
 ```python
-# ❌ 하드코딩된 분기
+# ❌ Hard-coded branching
 def process(type: str):
     if type == "A":
         return process_a()
     elif type == "B":
         return process_b()
-    # 새 타입 추가시 코드 수정 필요
+    # Code modification needed when adding new type
 
-# ✅ 전략 패턴 사용
+# ✅ Using strategy pattern
 class ProcessorRegistry:
     def register(self, type: str, processor: Processor):
         self._processors[type] = processor
@@ -155,15 +155,15 @@ class ProcessorRegistry:
         return self._processors[type].process()
 ```
 
-### 4. 테스트 용이성 (Testability)
+### 4. Testability
 ```python
-# ❌ 테스트하기 어려움
+# ❌ Hard to test
 class Feature:
     def execute(self):
         data = requests.get("https://api.example.com")
         return self._process(data)
 
-# ✅ 의존성 주입으로 테스트 용이
+# ✅ Easy to test with dependency injection
 class Feature:
     def __init__(self, api_client: ApiClient):
         self._api_client = api_client
@@ -175,136 +175,202 @@ class Feature:
 
 ---
 
-## 📋 Feature Add 계획 템플릿
+## 📋 Feature Add Plan Template
 
-### 기능 규모별 가이드
+### Feature Size Guide
 
-| 규모 | 페이즈 수 | 시간 | 특징 |
-|------|----------|------|------|
-| **Small** | 2-3 | 2-6시간 | 단일 컴포넌트, 기존 패턴 재사용 |
-| **Medium** | 4-5 | 8-15시간 | 여러 레이어 수정, 새 모듈 추가 |
-| **Large** | 6-7 | 15-30시간 | 아키텍처 영향, 복잡한 통합 |
+| Size | Phases | Time | Characteristics |
+|------|--------|------|-----------------|
+| **Small** | 2-3 | 2-6 hours | Single component, reusing existing patterns |
+| **Medium** | 4-5 | 8-15 hours | Multiple layer modifications, new module addition |
+| **Large** | 6-7 | 15-30 hours | Architecture impact, complex integration |
 
-### 페이즈 구조 (기능 추가용)
+### Phase Structure (for Feature Addition)
 
 ```markdown
-### Phase N: [기능 단위]
+### Phase N: [Feature Unit]
 
-#### 📖 코드 분석
-- [ ] 유사 기능 코드 확인
-- [ ] 재사용 가능 코드 식별
-- [ ] 영향 범위 파악
+#### 📖 Code Analysis
+- [ ] Check similar feature code
+- [ ] Identify reusable code
+- [ ] Understand impact scope
 
-#### 🔴 RED: 테스트 작성
-- [ ] 유닛 테스트 (기존 테스트 패턴 따름)
-- [ ] 통합 테스트 (필요시)
+#### 🔴 RED: Write Tests
+- [ ] Unit tests (following existing test patterns)
+- [ ] Integration tests (if needed)
 
-#### 🟢 GREEN: 구현
-- [ ] 기존 패턴에 맞춰 구현
-- [ ] 기존 유틸리티 재사용
+#### 🟢 GREEN: Implement
+- [ ] Implement following existing patterns
+- [ ] Reuse existing utilities
 
-#### 🔵 REFACTOR: 정리
-- [ ] 중복 제거
-- [ ] 기존 코드와 일관성 확인
+#### 🔵 REFACTOR: Clean Up
+- [ ] Remove duplication
+- [ ] Verify consistency with existing code
 
 #### ✋ Quality Gate
-- [ ] 기존 테스트 모두 통과
-- [ ] 새 테스트 모두 통과
-- [ ] 린트/포맷 통과
-- [ ] 기존 패턴과 일관성 확인
+- [ ] All existing tests pass
+- [ ] All new tests pass
+- [ ] Lint/format pass
+- [ ] Consistency with existing patterns verified
 ```
 
 ---
 
-## ✋ Quality Gate (기능 추가용)
+## ✋ Quality Gate (for Feature Addition)
 
-### 필수 검증 항목
+### Required Verification Items
 
-**기존 코드 영향**:
-- [ ] **기존 테스트 통과**: 모든 기존 테스트 100% 통과
-- [ ] **회귀 없음**: 기존 기능 동작 확인
-- [ ] **성능 유지**: 성능 저하 없음
+**Existing Code Impact**:
+- [ ] **Existing Tests Pass**: All existing tests 100% pass
+- [ ] **No Regression**: Existing features work correctly
+- [ ] **Performance Maintained**: No performance degradation
 
-**새 기능 품질**:
-- [ ] **TDD 준수**: Red-Green-Refactor 사이클 완료
-- [ ] **커버리지**: 새 코드 ≥80% 커버리지
-- [ ] **문서화**: 공개 API 문서화
+**New Feature Quality**:
+- [ ] **TDD Compliance**: Red-Green-Refactor cycle complete
+- [ ] **Coverage**: New code ≥80% coverage
+- [ ] **Documentation**: Public API documented
 
-**일관성**:
-- [ ] **패턴 준수**: 기존 아키텍처 패턴 따름
-- [ ] **네이밍**: 기존 네이밍 컨벤션 따름
-- [ ] **스타일**: 린트/포맷 규칙 통과
+**Consistency**:
+- [ ] **Pattern Compliance**: Following existing architecture patterns
+- [ ] **Naming**: Following existing naming conventions
+- [ ] **Style**: Lint/format rules pass
 
-**SOLID 원칙**:
-- [ ] **단일 책임**: 새 클래스/함수가 단일 책임
-- [ ] **개방/폐쇄**: 기존 코드 수정 최소화
-- [ ] **의존성 역전**: 추상화에 의존
+**SOLID Principles**:
+- [ ] **Single Responsibility**: New classes/functions have single responsibility
+- [ ] **Open/Closed**: Existing code modification minimized
+- [ ] **Dependency Inversion**: Depends on abstractions
 
 ---
 
-## 🛠️ 검증 명령어
+## 🛠️ Validation Commands
 
 ### Python/FastAPI (uv)
 ```bash
-# 전체 테스트 (기존 + 신규)
+# All tests (existing + new)
 uv run pytest --cov=src --cov-report=term-missing
 
-# 린트 & 포맷
+# Lint & Format
 uv run ruff check .
 uv run ruff format --check .
 
-# 타입 체크
+# Type check
 uv run mypy src/
 
-# 특정 기능 테스트
+# Specific feature test
 uv run pytest tests/ -k "feature_name" -v
 
-# 의존성 동기화
+# Sync dependencies
 uv sync
 ```
 
 ### TypeScript/React
 ```bash
-# 전체 테스트
+# All tests
 npm test -- --coverage
 
-# 린트 & 포맷
+# Lint & Format
 npm run lint
 npm run format:check
 
-# 타입 체크
+# Type check
 npx tsc --noEmit
 
-# 빌드 확인
+# Build verification
 npm run build
 ```
 
 ---
 
-## ⚠️ 주의사항
+## ⚠️ Cautions
 
-### 피해야 할 안티패턴
+### Anti-patterns to Avoid
 
-| 안티패턴 | 문제점 | 대안 |
-|---------|--------|------|
-| Big Bang 통합 | 한 번에 큰 변경 = 높은 위험 | 점진적 통합 |
-| 복붙 후 수정 | 중복 코드 양산 | 추상화 후 재사용 |
-| 기존 패턴 무시 | 일관성 저하 | 기존 패턴 분석 및 준수 |
-| 테스트 나중에 | 품질 저하 | TDD 엄격 준수 |
+| Anti-pattern | Problem | Alternative |
+|--------------|---------|-------------|
+| Big Bang Integration | Large change at once = High risk | Incremental integration |
+| Copy-paste & modify | Produces duplicate code | Abstract then reuse |
+| Ignoring existing patterns | Reduces consistency | Analyze and follow existing patterns |
+| Tests later | Quality degradation | Strict TDD compliance |
 
-### 체크포인트 질문
+### Checkpoint Questions
 
-코드 작성 전:
-- "이미 비슷한 기능이 있는가?"
-- "재사용할 수 있는 코드가 있는가?"
-- "기존 패턴은 무엇인가?"
+Before writing code:
+- "Does a similar feature already exist?"
+- "Is there reusable code?"
+- "What are the existing patterns?"
 
-코드 작성 후:
-- "기존 테스트가 모두 통과하는가?"
-- "기존 코드와 일관성이 있는가?"
-- "불필요한 복잡도가 추가되지 않았는가?"
+After writing code:
+- "Do all existing tests pass?"
+- "Is it consistent with existing code?"
+- "Was unnecessary complexity added?"
+
+---
+
+## 🧠 Codebase Context Awareness
+
+### CRITICAL: Before ANY Implementation
+
+```
+⚠️ STOP AND CHECK:
+
+1. □ Have I searched for SIMILAR implementations in this codebase?
+2. □ Am I using the SAME patterns as existing code?
+3. □ Have I checked HOW this is done elsewhere in the project?
+4. □ Am I being CONSISTENT with established conventions?
+```
+
+### Common Consistency Mistakes
+
+| Mistake | Example | Prevention |
+|---------|---------|------------|
+| **Reinventing existing utility** | Writing new `formatDate()` when one exists | Search utils/ folder first |
+| **Inconsistent API patterns** | REST style when project uses RPC style | Check existing endpoints |
+| **Different state management** | Local state when project uses global store | Look at similar components |
+| **Ignoring project structure** | Flat files when project uses feature folders | Mirror existing structure |
+
+### Cross-File Impact Awareness
+
+```markdown
+Before modifying ANY file, check:
+
+1. **Who calls this code?**
+   → Search: references to function/class name
+   → Will callers break with my change?
+
+2. **What does this code call?**
+   → Are those dependencies still correct?
+   → Am I using them correctly?
+
+3. **Shared types/interfaces?**
+   → If I change a type, what else breaks?
+   → Search for all usages first
+```
+
+### Remembering Session Context
+
+```
+⚠️ IN LONG SESSIONS:
+
+1. Re-read code written earlier in this conversation
+2. Check: "Did I already implement something similar?"
+3. Check: "Did I make a mistake earlier that I corrected?"
+4. Ensure: Current code doesn't contradict earlier code
+5. Verify: Patterns are consistent across all changes
+```
+
+### Quick Consistency Checklist
+
+```markdown
+Before completing ANY task:
+- [ ] Same patterns as existing similar code
+- [ ] Same naming conventions as project
+- [ ] Same error handling approach
+- [ ] Same import/export style
+- [ ] No contradiction with earlier session work
+- [ ] Reusing existing utilities (not reinventing)
+```
 
 ---
 
 ## 📚 Supporting Files
-- [plan-template.md](plan-template.md) - 기능 추가 계획 템플릿
+- [plan-template.md](plan-template.md) - Feature Addition Plan Template

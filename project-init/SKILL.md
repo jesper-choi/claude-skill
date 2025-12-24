@@ -1,62 +1,61 @@
 ---
 name: vibe-coding-planner
-description: 바이브코딩에 최적화된 기능 계획 및 개발 스킬. Clean Architecture, SOLID 원칙, 품질 중심 개발을 지원합니다. Python, TypeScript, FastAPI, React 프로젝트에 특화. Keywords: plan, planning, vibe coding, clean architecture, solid, quality, python, typescript, fastapi, react.
+description: Planning and development skill optimized for vibe coding. Supports Clean Architecture, SOLID principles, and quality-driven development. Specialized for Python, TypeScript, FastAPI, and React projects. Keywords: plan, planning, vibe coding, clean architecture, solid, quality, python, typescript, fastapi, react.
 ---
 
 # Vibe Coding Planner
 
 ## 🎯 Purpose
 
-바이브코딩 철학에 기반한 구조화된 개발 계획 생성:
-- **전체 코드베이스 인식**: 항상 전체 맥락을 고려한 개발
-- **즉각적 검증**: 코드 작성 직후 반드시 검증
-- **추측 금지**: 실제 코드를 읽고 판단, 가정하지 않음
-- **품질 우선**: 단순함, 명확함, 유지보수성 최우선
+Generate structured development plans based on vibe coding philosophy:
+- **Codebase-Aware**: Always consider the full context
+- **Immediate Validation**: Always verify immediately after writing code
+- **No Guessing**: Read actual code and judge, don't assume
+- **Quality First**: Prioritize simplicity, clarity, and maintainability
 
 ---
 
-## 🧠 핵심 원칙: 바이브코딩 철학
+## 🧠 Core Principles: Vibe Coding Philosophy
 
-### 1. 코드베이스 우선 (Codebase First)
+### 1. Codebase First
 ```
-⛔ 절대 하지 말 것:
-- 코드를 읽지 않고 추측으로 구현
-- 기존 패턴을 무시한 새로운 방식 도입
-- 일부만 보고 전체를 판단
+⛔ NEVER DO:
+- Implement based on guesses without reading code
+- Introduce new patterns ignoring existing ones
+- Judge the whole by looking at only part
 
-✅ 반드시 할 것:
-- 작업 전 관련 코드 전체 읽기
-- 기존 패턴과 컨벤션 파악
-- 의존성과 영향 범위 확인
-```
-
-### 2. 즉각 검증 (Immediate Validation)
-```
-모든 코드 변경 후:
-1. 빌드/컴파일 확인
-2. 린터/포매터 실행
-3. 타입 체크 (해당시)
-4. 관련 테스트 실행
-5. 수동 동작 확인
+✅ ALWAYS DO:
+- Read all related code before starting work
+- Understand existing patterns and conventions
+- Check dependencies and impact scope
 ```
 
-### 3. 단순함 우선 (Simplicity First)
+### 2. Immediate Validation
 ```
-복잡한 해결책 vs 단순한 해결책 → 항상 단순함 선택
+After every code change:
+1. Verify build/compile
+2. Run linter/formatter
+3. Type check (if applicable)
+4. Run related tests
+5. Manual behavior verification
+```
 
-판단 기준:
-- 코드 줄 수가 적은가?
-- 한눈에 이해되는가?
-- 의존성이 최소인가?
-- 테스트하기 쉬운가?
+### 3. Simplicity First
+```
+Complex solution vs Simple solution → Always choose simplicity
+
+Judgment Criteria:
+- Is the line count minimal?
+- Is it understandable at a glance?
+- Are dependencies minimal?
+- Is it easy to test?
 ```
 
 ---
 
-## 🏗️ Clean Architecture 가이드
+## 🏗️ Clean Architecture Guide
 
-### 레이어 구조
-
+### Layer Structure
 ```
 ┌─────────────────────────────────────────────────────┐
 │                    Presentation                      │
@@ -73,109 +72,109 @@ description: 바이브코딩에 최적화된 기능 계획 및 개발 스킬. Cl
 └─────────────────────────────────────────────────────┘
 ```
 
-### Python/FastAPI 프로젝트 구조
+### Python/FastAPI Project Structure
 ```
 src/
-├── domain/                 # 핵심 비즈니스 로직
-│   ├── entities/          # 엔티티, 값 객체
-│   ├── interfaces/        # 추상 인터페이스 (Repository 등)
-│   └── exceptions/        # 도메인 예외
-├── application/           # 애플리케이션 로직
-│   ├── use_cases/         # 유스케이스
-│   ├── services/          # 애플리케이션 서비스
-│   └── dto/               # 데이터 전송 객체
-├── infrastructure/        # 외부 시스템 연동
-│   ├── repositories/      # Repository 구현체
-│   ├── database/          # DB 설정, 마이그레이션
-│   └── external/          # 외부 API 클라이언트
-└── presentation/          # API 계층
-    ├── api/               # FastAPI 라우터
-    ├── schemas/           # Pydantic 스키마
-    └── dependencies/      # 의존성 주입
+├── domain/                 # Core business logic
+│   ├── entities/          # Entities, Value Objects
+│   ├── interfaces/        # Abstract interfaces
+│   └── exceptions/        # Domain exceptions
+├── application/           # Application logic
+│   ├── use_cases/         # Use Cases
+│   ├── services/          # Application services
+│   └── dto/               # Data Transfer Objects
+├── infrastructure/        # External system integration
+│   ├── repositories/      # Repository implementations
+│   ├── database/          # DB config, migrations
+│   └── external/          # External API clients
+└── presentation/          # API layer
+    ├── api/               # FastAPI routers
+    ├── schemas/           # Pydantic schemas
+    └── dependencies/      # Dependency injection
 ```
 
-### TypeScript/React 프로젝트 구조
+### TypeScript/React Project Structure
 ```
 src/
-├── domain/                # 핵심 비즈니스 로직
-│   ├── entities/         # 타입, 인터페이스
-│   ├── repositories/     # Repository 인터페이스
-│   └── errors/           # 커스텀 에러
-├── application/          # 애플리케이션 로직
-│   ├── use-cases/        # 유스케이스
-│   ├── services/         # 서비스 로직
-│   └── dto/              # DTO 타입
-├── infrastructure/       # 외부 시스템
-│   ├── api/              # API 클라이언트
-│   ├── storage/          # 로컬 스토리지
-│   └── repositories/     # Repository 구현
-└── presentation/         # UI 계층
-    ├── components/       # React 컴포넌트
-    ├── hooks/            # 커스텀 훅
-    ├── pages/            # 페이지 컴포넌트
+├── domain/                # Core business logic
+│   ├── entities/         # Types, Interfaces
+│   ├── repositories/     # Repository interfaces
+│   └── errors/           # Custom errors
+├── application/          # Application logic
+│   ├── use-cases/        # Use Cases
+│   ├── services/         # Service logic
+│   └── dto/              # DTO types
+├── infrastructure/       # External systems
+│   ├── api/              # API clients
+│   ├── storage/          # Local storage
+│   └── repositories/     # Repository implementations
+└── presentation/         # UI layer
+    ├── components/       # React components
+    ├── hooks/            # Custom hooks
+    ├── pages/            # Page components
     └── contexts/         # Context API
 ```
 
 ---
 
-## 📏 SOLID 원칙 체크리스트
+## 📏 SOLID Principles Checklist
 
-### S - Single Responsibility (단일 책임)
-- [ ] 클래스/함수가 하나의 책임만 가지는가?
-- [ ] 변경 이유가 하나만 존재하는가?
-- [ ] 이름이 역할을 명확히 설명하는가?
+### S - Single Responsibility
+- [ ] Does the class/function have only one responsibility?
+- [ ] Is there only one reason to change?
+- [ ] Does the name clearly describe the role?
 
-### O - Open/Closed (개방/폐쇄)
-- [ ] 확장에 열려있는가? (새 기능 추가 용이)
-- [ ] 수정에 닫혀있는가? (기존 코드 변경 최소화)
-- [ ] 추상화를 통한 확장 포인트가 있는가?
+### O - Open/Closed
+- [ ] Is it open for extension?
+- [ ] Is it closed for modification?
+- [ ] Are there extension points through abstraction?
 
-### L - Liskov Substitution (리스코프 치환)
-- [ ] 하위 타입이 상위 타입을 대체 가능한가?
-- [ ] 계약(인터페이스)을 위반하지 않는가?
-- [ ] 예외 처리가 일관적인가?
+### L - Liskov Substitution
+- [ ] Can subtypes substitute for base types?
+- [ ] Does it not violate contracts?
+- [ ] Is exception handling consistent?
 
-### I - Interface Segregation (인터페이스 분리)
-- [ ] 인터페이스가 작고 집중적인가?
-- [ ] 클라이언트가 사용하지 않는 메서드에 의존하지 않는가?
-- [ ] 역할별로 인터페이스가 분리되어 있는가?
+### I - Interface Segregation
+- [ ] Are interfaces small and focused?
+- [ ] Do clients not depend on unused methods?
+- [ ] Are interfaces separated by role?
 
-### D - Dependency Inversion (의존성 역전)
-- [ ] 고수준 모듈이 저수준 모듈에 의존하지 않는가?
-- [ ] 추상화에 의존하는가? (구체 구현 X)
-- [ ] 의존성 주입을 사용하는가?
+### D - Dependency Inversion
+- [ ] Do high-level modules not depend on low-level modules?
+- [ ] Do they depend on abstractions?
+- [ ] Is dependency injection used?
 
 ---
 
-## 🎯 코드 품질 기준
+## 🎯 Code Quality Standards
 
-### 1. 단순함 (Simplicity)
+### 1. Simplicity
 ```python
-# ❌ 과도한 엔지니어링
+# ❌ Over-engineering
 class UserServiceFactoryBuilder:
     def create_factory(self):
         return UserServiceFactory()
 
-# ✅ 단순한 해결책
+# ✅ Simple solution
 class UserService:
     def get_user(self, user_id: str) -> User:
         return self.repository.find(user_id)
 ```
 
-### 2. 명확함 (Clarity)
+### 2. Clarity
 ```typescript
-// ❌ 불명확한 이름
+// ❌ Unclear names
 const d = getData();
 const p = process(d);
 
-// ✅ 명확한 이름
+// ✅ Clear names
 const userOrders = fetchUserOrders(userId);
 const validatedOrders = validateOrderStatus(userOrders);
 ```
 
-### 3. 중복 제거 (DRY)
+### 3. DRY (Don't Repeat Yourself)
 ```python
-# ❌ 중복 코드
+# ❌ Duplicate code
 def get_active_users():
     users = db.query(User).filter(User.status == 'active').all()
     return [UserDTO.from_entity(u) for u in users]
@@ -184,7 +183,7 @@ def get_admin_users():
     users = db.query(User).filter(User.role == 'admin').all()
     return [UserDTO.from_entity(u) for u in users]
 
-# ✅ 추출 및 재사용
+# ✅ Extract and reuse
 def _get_users_by_filter(filter_condition) -> list[UserDTO]:
     users = db.query(User).filter(filter_condition).all()
     return [UserDTO.from_entity(u) for u in users]
@@ -196,29 +195,29 @@ def get_admin_users():
     return _get_users_by_filter(User.role == 'admin')
 ```
 
-### 4. 적절한 자료구조
+### 4. Appropriate Data Structures
 ```typescript
-// ❌ 부적절한 자료구조 (O(n) 탐색)
+// ❌ O(n) lookup
 const users: User[] = [...];
 const user = users.find(u => u.id === targetId);
 
-// ✅ 적절한 자료구조 (O(1) 탐색)
+// ✅ O(1) lookup
 const usersById: Map<string, User> = new Map();
 const user = usersById.get(targetId);
 ```
 
-### 5. 성능과 리소스 관리
+### 5. Performance and Resource Management
 ```python
-# ❌ 메모리 낭비
+# ❌ Memory waste
 def process_large_file(path: str):
-    content = open(path).read()  # 전체 로드
+    content = open(path).read()
     for line in content.split('\n'):
         process(line)
 
-# ✅ 스트리밍 처리
+# ✅ Streaming processing
 def process_large_file(path: str):
     with open(path) as f:
-        for line in f:  # 한 줄씩 처리
+        for line in f:
             process(line)
 ```
 
@@ -226,163 +225,143 @@ def process_large_file(path: str):
 
 ## 📋 Planning Workflow
 
-### Step 1: 코드베이스 분석 (필수)
+### Step 1: Codebase Analysis (Required)
 ```
-⚠️ 코드를 읽지 않고 계획하지 말 것!
-
-1. 관련 파일 전체 읽기
-2. 기존 아키텍처 패턴 파악
-3. 의존성 맵 작성
-4. 영향 범위 분석
-5. 기존 테스트 구조 확인
-```
-
-### Step 2: 페이즈 분해 (TDD 통합)
-각 페이즈는 다음을 충족:
-- **테스트 우선**: 구현 전 테스트 작성
-- **1-4시간** 이내 완료 가능
-- **독립적 롤백** 가능
-- **검증 가능한** 결과물
-
-**페이즈 구조**:
-```markdown
-### Phase N: [구체적 결과물]
-**Goal**: [이 페이즈에서 동작하는 기능]
-**Estimated Time**: X시간
-
-#### 🔴 RED: 실패하는 테스트 작성
-- [ ] 테스트 케이스 1
-- [ ] 테스트 케이스 2
-
-#### 🟢 GREEN: 테스트 통과 구현
-- [ ] 최소 구현 1
-- [ ] 최소 구현 2
-
-#### 🔵 REFACTOR: 품질 개선
-- [ ] 중복 제거
-- [ ] 네이밍 개선
-- [ ] 구조 최적화
-
-#### ✋ Quality Gate
-[전체 검증 체크리스트]
+⚠️ DO NOT plan without reading code!
+1. Read all related files
+2. Understand existing architecture patterns
+3. Create dependency map
+4. Analyze impact scope
+5. Check existing test structure
 ```
 
-### Step 3: 계획 문서 생성
-`docs/plans/PLAN_<feature-name>.md` 생성
+### Step 2: Phase Decomposition (TDD Integration)
+Each phase must satisfy:
+- **Tests First**: Write tests before implementation
+- **1-4 hours** to complete
+- **Independent rollback** possible
+- **Verifiable** deliverables
 
-### Step 4: 사용자 승인
-**중요**: 구현 시작 전 반드시 승인 받기
+### Step 3: Generate Plan Document
+Create `docs/plans/PLAN_<feature-name>.md`
 
-### Step 5: 문서 생성 및 안내
+### Step 4: User Approval
+**Important**: Must get approval before starting implementation
 
 ---
 
-## ✋ Quality Gate 표준
+## ✋ Quality Gate Standards
 
-### 빌드 & 테스트
-- [ ] **빌드 성공**: 에러 없이 컴파일/빌드
-- [ ] **모든 테스트 통과**: 스킵된 테스트 없음
-- [ ] **커버리지 유지**: 기존 대비 감소 없음
+### Build & Test
+- [ ] **Build Success**: Compile/build without errors
+- [ ] **All Tests Pass**: No skipped tests
+- [ ] **Coverage Maintained**: No decrease from baseline
 
-### TDD 준수
-- [ ] **RED**: 테스트가 먼저 작성되고 실패함
-- [ ] **GREEN**: 테스트 통과를 위한 최소 코드
-- [ ] **REFACTOR**: 테스트 유지하며 품질 개선
+### TDD Compliance
+- [ ] **RED**: Tests written first and fail
+- [ ] **GREEN**: Minimal code to pass tests
+- [ ] **REFACTOR**: Quality improved while maintaining tests
 
-### 코드 품질
-- [ ] **린팅**: 에러/경고 없음
-- [ ] **포매팅**: 프로젝트 표준 준수
-- [ ] **타입 체크**: (해당시) 통과
+### Code Quality
+- [ ] **Linting**: No errors/warnings
+- [ ] **Formatting**: Project standard compliance
+- [ ] **Type Check**: Pass
 
-### Clean Architecture 준수
-- [ ] **레이어 분리**: 의존성 방향 올바름
-- [ ] **인터페이스 사용**: 구체 구현에 직접 의존 X
-- [ ] **단일 책임**: 각 모듈이 하나의 역할
-
-### 바이브코딩 체크
-- [ ] **단순함**: 더 단순한 해결책이 없는가?
-- [ ] **명확함**: 코드가 자기 설명적인가?
-- [ ] **중복 없음**: DRY 원칙 준수
-- [ ] **검증 완료**: 실행하여 동작 확인
+### Vibe Coding Check
+- [ ] **Simplicity**: Is there no simpler solution?
+- [ ] **Clarity**: Is code self-explanatory?
+- [ ] **No Duplication**: DRY principle compliance
+- [ ] **Verification Complete**: Confirmed by execution
 
 ---
 
-## 🛠️ 기술 스택별 검증 명령어
+## 🛠️ Validation Commands
 
 ### Python/FastAPI (uv)
 ```bash
-# 테스트
 uv run pytest --cov=src --cov-report=html
-
-# 린팅 & 포매팅
 uv run ruff check .
 uv run ruff format --check .
-
-# 타입 체크
 uv run mypy src/
-
-# 보안 검사
-uv run bandit -r src/
-uv run pip-audit
-
-# 의존성 동기화
 uv sync
 ```
 
 ### TypeScript/React
 ```bash
-# 테스트
 npm test -- --coverage
-
-# 린팅 & 포매팅
 npm run lint
 npm run format:check
-
-# 타입 체크
 npx tsc --noEmit
-
-# 빌드
 npm run build
 ```
 
 ---
 
-## 📊 Phase Sizing 가이드
+## 📊 Phase Sizing Guide
 
-| 규모 | 페이즈 수 | 총 시간 | 예시 |
-|------|----------|---------|------|
-| Small | 2-3 | 3-6시간 | 단일 컴포넌트, 간단한 기능 |
-| Medium | 4-5 | 8-15시간 | 인증 시스템, CRUD 기능 |
-| Large | 6-7 | 15-25시간 | 복잡한 통합, 아키텍처 변경 |
-
----
-
-## ⚠️ Risk Assessment
-
-각 리스크에 대해:
-- **확률**: Low/Medium/High
-- **영향**: Low/Medium/High
-- **완화 전략**: 구체적 조치
-
-**일반적 리스크**:
-| 리스크 | 완화 전략 |
-|--------|----------|
-| 기존 코드와 충돌 | 영향 범위 사전 분석, 점진적 변경 |
-| 성능 저하 | 벤치마크 테스트, 프로파일링 |
-| 테스트 부족 | 커버리지 목표 설정, TDD 엄격 준수 |
-| 복잡도 증가 | 단순함 원칙 검토, 리팩토링 |
+| Size | Phases | Total Time | Examples |
+|------|--------|------------|----------|
+| Small | 2-3 | 3-6 hours | Single component, simple feature |
+| Medium | 4-5 | 8-15 hours | Auth system, CRUD features |
+| Large | 6-7 | 15-25 hours | Complex integration, architecture changes |
 
 ---
 
-## 🔄 Rollback Strategy
+## 🧠 Codebase Context & Session Memory
 
-각 페이즈별 롤백 계획:
-1. **코드 변경 취소**: git revert 또는 수동 복원
-2. **DB 마이그레이션**: 역방향 마이그레이션 준비
-3. **설정 복원**: 이전 설정 백업
-4. **의존성 복원**: package.json/requirements.txt 복원
+### CRITICAL: Whole-Codebase Thinking
+
+```
+⚠️ EVERY Implementation Must Consider:
+
+1. □ How is this done ELSEWHERE in this project?
+2. □ What PATTERNS already exist that I should follow?
+3. □ What UTILITIES already exist that I can reuse?
+4. □ Will my change BREAK anything else?
+```
+
+### Before Writing ANY Code
+
+| Question | Action |
+|----------|--------|
+| Similar code exists? | `grep -r "similar_term" src/` → Use as reference |
+| Utility already exists? | Check `utils/`, `helpers/`, `lib/` folders |
+| Naming convention? | Look at 3+ similar files for pattern |
+| Import style? | Copy from existing file in same folder |
+
+### Session Context Memory
+
+```
+⚠️ IN LONG CONVERSATIONS:
+
+1. REMEMBER what was implemented earlier
+2. CHECK for contradictions with previous code
+3. VERIFY patterns are consistent across all changes
+4. DON'T repeat mistakes already corrected
+5. DON'T reinvent what was already created this session
+```
+
+### Cross-File Impact Check
+
+```markdown
+Before ANY change, verify:
+- [ ] All CALLERS of modified code still work
+- [ ] All DEPENDENCIES are used correctly  
+- [ ] SHARED types/interfaces aren't broken
+- [ ] TESTS cover the change
+```
+
+### Consistency First
+
+```
+If unsure about any pattern:
+1. STOP
+2. SEARCH codebase for similar examples
+3. COPY the existing pattern exactly
+4. ONLY deviate if there's a specific reason
+```
 
 ---
 
 ## 📚 Supporting Files
-- [plan-template.md](plan-template.md) - 전체 계획 문서 템플릿
+- [plan-template.md](plan-template.md) - Full Plan Document Template

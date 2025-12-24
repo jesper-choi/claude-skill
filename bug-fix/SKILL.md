@@ -1,210 +1,210 @@
 ---
 name: vibe-coding-bug-fix
-description: 바이브코딩에 최적화된 버그 수정 스킬. 체계적인 문제 분석, 근본 원인 파악, 안전한 수정을 지원합니다. Keywords: bug, fix, debug, issue, error, problem, defect, hotfix, patch, python, typescript, fastapi, react.
+description: Bug fix skill optimized for vibe coding. Supports systematic problem analysis, root cause identification, and safe fixes. Keywords: bug, fix, debug, issue, error, problem, defect, hotfix, patch, python, typescript, fastapi, react.
 ---
 
 # Vibe Coding: Bug Fix
 
 ## 🎯 Purpose
 
-버그를 **체계적이고 안전하게** 수정:
-- **증상이 아닌 원인 해결**: 근본 원인(Root Cause) 파악
-- **재현 우선**: 버그를 먼저 재현하고 테스트로 캡처
-- **회귀 방지**: 수정 후 동일 버그 재발 방지
-- **최소 변경**: 필요한 최소한의 코드만 수정
+Fix bugs **systematically and safely**:
+- **Fix the Cause, Not the Symptom**: Identify and address the root cause
+- **Reproduce First**: Reproduce the bug first and capture it with a test
+- **Prevent Regression**: Prevent the same bug from recurring after the fix
+- **Minimal Change**: Modify only the minimum necessary code
 
 ---
 
-## 🧠 핵심 원칙: 버그 수정 시 바이브코딩
+## 🧠 Core Principles: Vibe Coding for Bug Fixes
 
-### 1. 추측하지 말고 확인하라 (Verify, Don't Assume)
+### 1. Verify, Don't Assume
 ```
-⛔ 절대 하지 말 것:
-- 로그/에러 메시지만 보고 원인 추측
-- 코드를 읽지 않고 수정 시도
-- "아마 이것이 원인일 거야" 식 접근
+⛔ NEVER DO:
+- Guess the cause based only on logs/error messages
+- Attempt to fix without reading the code
+- Approach with "this is probably the cause"
 
-✅ 반드시 할 것:
-- 버그 재현 먼저 시도
-- 관련 코드 전체 읽기
-- 디버깅으로 실제 동작 확인
-- 근본 원인 파악 후 수정
-```
-
-### 2. 테스트로 버그 캡처 (Capture with Test)
-```
-버그 수정 순서:
-1. 버그 재현
-2. 버그를 재현하는 테스트 작성 (FAIL)
-3. 근본 원인 분석
-4. 수정 (테스트 PASS)
-5. 기존 테스트 모두 통과 확인
+✅ ALWAYS DO:
+- Try to reproduce the bug first
+- Read all related code
+- Confirm actual behavior through debugging
+- Fix only after identifying the root cause
 ```
 
-### 3. 최소 변경 원칙 (Minimal Change)
+### 2. Capture with Test
 ```
-수정 범위 최소화:
-
-✅ 좋은 수정:
-- 버그 원인만 정확히 수정
-- 관련 없는 코드 변경 없음
-- 리팩토링은 별도 PR로
-
-❌ 나쁜 수정:
-- "ついでに" 다른 것도 수정
-- 불필요한 코드 정리
-- 범위를 넘어선 개선
+Bug Fix Order:
+1. Reproduce the bug
+2. Write a test that reproduces the bug (FAIL)
+3. Analyze root cause
+4. Fix (test PASS)
+5. Verify all existing tests pass
 ```
 
----
-
-## 🔍 Bug Fix 워크플로우
-
-### Step 1: 버그 재현 (필수)
-```markdown
-재현 체크리스트:
-- [ ] 버그 재현 성공
-- [ ] 재현 조건 문서화
-- [ ] 재현 단계 명확히 기록
+### 3. Minimal Change Principle
 ```
+Minimize fix scope:
 
-### Step 2: 정보 수집
-```markdown
-수집할 정보:
-- [ ] 에러 메시지/로그
-- [ ] 스택 트레이스
-- [ ] 입력 데이터
-- [ ] 환경 정보
-- [ ] 재현 빈도
-```
+✅ Good Fix:
+- Fix only the bug cause precisely
+- No unrelated code changes
+- Refactoring in separate PR
 
-### Step 3: 근본 원인 분석
-```markdown
-분석 체크리스트:
-- [ ] 관련 코드 전체 읽기
-- [ ] 실행 흐름 추적
-- [ ] 의심 지점 디버깅
-- [ ] 근본 원인 확정
-```
-
-### Step 4: 테스트로 버그 캡처
-```markdown
-테스트 작성:
-- [ ] 버그를 재현하는 테스트 작성
-- [ ] 테스트 실행 → FAIL 확인
-- [ ] 이 테스트가 버그를 정확히 캡처하는지 확인
-```
-
-### Step 5: 수정 및 검증
-```markdown
-수정 체크리스트:
-- [ ] 최소한의 코드만 수정
-- [ ] 버그 테스트 PASS
-- [ ] 기존 테스트 모두 PASS
-- [ ] 수동 검증 완료
+❌ Bad Fix:
+- "While I'm at it" fix other things
+- Unnecessary code cleanup
+- Improvements beyond scope
 ```
 
 ---
 
-## 🔬 근본 원인 분석 (RCA) 가이드
+## 🔍 Bug Fix Workflow
 
-### 5 Whys 기법
-```
-버그: 사용자가 로그인할 수 없다
-
-Why 1: 왜 로그인이 안 되는가?
-→ 인증 토큰이 만료되었다
-
-Why 2: 왜 토큰이 만료되었는가?
-→ 토큰 갱신 로직이 실행되지 않았다
-
-Why 3: 왜 갱신 로직이 실행되지 않았는가?
-→ 갱신 타이밍 계산이 잘못되었다
-
-Why 4: 왜 타이밍 계산이 잘못되었는가?
-→ UTC/로컬 시간 변환 버그
-
-Why 5: 왜 시간 변환에 버그가 있는가?
-→ 타임존 처리 누락 ← 근본 원인
+### Step 1: Reproduce the Bug (Required)
+```markdown
+Reproduction Checklist:
+- [ ] Bug reproduction successful
+- [ ] Reproduction conditions documented
+- [ ] Reproduction steps clearly recorded
 ```
 
-### 디버깅 전략
+### Step 2: Gather Information
+```markdown
+Information to Collect:
+- [ ] Error messages/logs
+- [ ] Stack traces
+- [ ] Input data
+- [ ] Environment information
+- [ ] Reproduction frequency
+```
+
+### Step 3: Root Cause Analysis
+```markdown
+Analysis Checklist:
+- [ ] Read all related code
+- [ ] Trace execution flow
+- [ ] Debug suspicious points
+- [ ] Confirm root cause
+```
+
+### Step 4: Capture Bug with Test
+```markdown
+Test Writing:
+- [ ] Write test that reproduces the bug
+- [ ] Run test → Confirm FAIL
+- [ ] Verify this test accurately captures the bug
+```
+
+### Step 5: Fix and Verify
+```markdown
+Fix Checklist:
+- [ ] Modify only minimal code
+- [ ] Bug test PASS
+- [ ] All existing tests PASS
+- [ ] Manual verification complete
+```
+
+---
+
+## 🔬 Root Cause Analysis (RCA) Guide
+
+### 5 Whys Technique
+```
+Bug: User cannot log in
+
+Why 1: Why can't they log in?
+→ Authentication token expired
+
+Why 2: Why did the token expire?
+→ Token refresh logic didn't execute
+
+Why 3: Why didn't refresh logic execute?
+→ Refresh timing calculation was wrong
+
+Why 4: Why was timing calculation wrong?
+→ UTC/local time conversion bug
+
+Why 5: Why is there a time conversion bug?
+→ Timezone handling missing ← ROOT CAUSE
+```
+
+### Debugging Strategies
 
 **Python**:
 ```python
-# 브레이크포인트
+# Breakpoint
 import pdb; pdb.set_trace()
 
-# 또는 breakpoint() (Python 3.7+)
+# Or breakpoint() (Python 3.7+)
 breakpoint()
 
-# 로깅으로 추적
+# Logging for tracing
 import logging
 logging.debug(f"value: {value}, type: {type(value)}")
 ```
 
 **TypeScript/JavaScript**:
 ```typescript
-// 브레이크포인트
+// Breakpoint
 debugger;
 
-// 콘솔 로깅
+// Console logging
 console.log('checkpoint', { value, state });
 
-// 조건부 로깅
+// Conditional logging
 if (DEBUG) console.trace('stack trace here');
 ```
 
 ---
 
-## 📏 버그 수정 체크리스트
+## 📏 Bug Fix Checklist
 
-### 수정 전
-- [ ] 버그 재현 성공
-- [ ] 관련 코드 전체 읽음
-- [ ] 근본 원인 파악 완료
-- [ ] 버그 캡처 테스트 작성 (FAIL)
+### Before Fix
+- [ ] Bug reproduction successful
+- [ ] Read all related code
+- [ ] Root cause identified
+- [ ] Bug capture test written (FAIL)
 
-### 수정 중
-- [ ] 최소한의 코드만 수정
-- [ ] 수정 의도가 명확함
-- [ ] 부수효과(side effect) 없음
+### During Fix
+- [ ] Modifying only minimal code
+- [ ] Fix intent is clear
+- [ ] No side effects
 
-### 수정 후
-- [ ] 버그 캡처 테스트 PASS
-- [ ] 기존 테스트 100% PASS
-- [ ] 수동 검증 완료
-- [ ] 유사 버그 가능성 검토
+### After Fix
+- [ ] Bug capture test PASS
+- [ ] All existing tests 100% PASS
+- [ ] Manual verification complete
+- [ ] Similar bug possibility reviewed
 
 ---
 
-## 🎯 버그 유형별 가이드
+## 🎯 Bug Type Guide
 
-### 1. 로직 버그
+### 1. Logic Bugs
 ```python
-# 문제: 경계 조건 오류
-# ❌ 버그
-if count > 10:  # 10은 포함 안됨
+# Problem: Boundary condition error
+# ❌ Bug
+if count > 10:  # 10 is not included
     process()
 
-# ✅ 수정
-if count >= 10:  # 10 포함
+# ✅ Fix
+if count >= 10:  # 10 included
     process()
 ```
 
-**분석 포인트**:
-- 경계 값 (boundary values)
-- off-by-one 에러
-- 조건문 논리
+**Analysis Points**:
+- Boundary values
+- Off-by-one errors
+- Conditional logic
 
-### 2. Null/None 관련 버그
+### 2. Null/None Related Bugs
 ```python
-# 문제: None 체크 누락
-# ❌ 버그
+# Problem: Missing None check
+# ❌ Bug
 def get_name(user):
-    return user.name  # user가 None이면 에러
+    return user.name  # Error if user is None
 
-# ✅ 수정
+# ✅ Fix
 def get_name(user):
     if user is None:
         return None
@@ -212,35 +212,35 @@ def get_name(user):
 ```
 
 ```typescript
-// ❌ 버그
-const name = user.name;  // user가 undefined일 수 있음
+// ❌ Bug
+const name = user.name;  // user could be undefined
 
-// ✅ 수정
+// ✅ Fix
 const name = user?.name ?? 'Unknown';
 ```
 
-### 3. 비동기 버그
+### 3. Async Bugs
 ```python
-# 문제: await 누락
-# ❌ 버그
+# Problem: Missing await
+# ❌ Bug
 async def fetch_data():
-    data = api.get_data()  # await 누락
+    data = api.get_data()  # Missing await
     return process(data)
 
-# ✅ 수정
+# ✅ Fix
 async def fetch_data():
     data = await api.get_data()
     return process(data)
 ```
 
 ```typescript
-// 문제: 레이스 컨디션
-// ❌ 버그
+// Problem: Race condition
+// ❌ Bug
 useEffect(() => {
-  fetchData().then(setData);  // 언마운트 후 setState 가능
+  fetchData().then(setData);  // setState after unmount possible
 }, []);
 
-// ✅ 수정
+// ✅ Fix
 useEffect(() => {
   let cancelled = false;
   fetchData().then(data => {
@@ -250,29 +250,29 @@ useEffect(() => {
 }, []);
 ```
 
-### 4. 타입 관련 버그
+### 4. Type Related Bugs
 ```python
-# 문제: 타입 불일치
-# ❌ 버그
+# Problem: Type mismatch
+# ❌ Bug
 def calculate(value):
-    return value + 10  # value가 str이면 에러
+    return value + 10  # Error if value is str
 
-# ✅ 수정
+# ✅ Fix
 def calculate(value: int) -> int:
     return int(value) + 10
 ```
 
-### 5. 상태 관리 버그
+### 5. State Management Bugs
 ```typescript
-// 문제: 직접 상태 변경
-// ❌ 버그
+// Problem: Direct state mutation
+// ❌ Bug
 const updateItem = (items, id, value) => {
   const item = items.find(i => i.id === id);
-  item.value = value;  // 직접 변경
+  item.value = value;  // Direct mutation
   setItems(items);
 };
 
-// ✅ 수정
+// ✅ Fix
 const updateItem = (items, id, value) => {
   setItems(items.map(item =>
     item.id === id ? { ...item, value } : item
@@ -282,109 +282,178 @@ const updateItem = (items, id, value) => {
 
 ---
 
-## 📋 Bug Fix 계획 템플릿
+## 📋 Bug Fix Plan Template
 
-### 버그 규모별 가이드
+### Bug Size Guide
 
-| 규모 | 시간 | 특징 |
-|------|------|------|
-| **Hotfix** | 1-2시간 | 명확한 원인, 단일 파일 수정 |
-| **Standard** | 2-4시간 | 분석 필요, 여러 파일 관련 |
-| **Complex** | 4-8시간 | 깊은 분석 필요, 시스템 영향 |
+| Size | Time | Characteristics |
+|------|------|-----------------|
+| **Hotfix** | 1-2 hours | Clear cause, single file fix |
+| **Standard** | 2-4 hours | Analysis needed, multiple files involved |
+| **Complex** | 4-8 hours | Deep analysis required, system impact |
 
-### 페이즈 구조 (버그 수정용)
+### Phase Structure (for Bug Fixes)
 
 ```markdown
-### Phase 1: 재현 & 분석
-- [ ] 버그 재현
-- [ ] 정보 수집
-- [ ] 코드 분석
-- [ ] 근본 원인 파악
+### Phase 1: Reproduce & Analyze
+- [ ] Reproduce bug
+- [ ] Gather information
+- [ ] Analyze code
+- [ ] Identify root cause
 
-### Phase 2: 테스트 & 수정
-- [ ] 버그 캡처 테스트 작성 (FAIL)
-- [ ] 최소 수정 적용
-- [ ] 테스트 PASS 확인
-- [ ] 기존 테스트 PASS 확인
+### Phase 2: Test & Fix
+- [ ] Write bug capture test (FAIL)
+- [ ] Apply minimal fix
+- [ ] Confirm test PASS
+- [ ] Confirm existing tests PASS
 
-### Phase 3: 검증 & 완료
-- [ ] 수동 검증
-- [ ] 유사 버그 검토
-- [ ] 문서화
+### Phase 3: Verify & Complete
+- [ ] Manual verification
+- [ ] Similar bug review
+- [ ] Documentation
 ```
 
 ---
 
-## ✋ Quality Gate (버그 수정용)
+## ✋ Quality Gate (for Bug Fixes)
 
-### 필수 검증 항목
+### Required Verification Items
 
-**버그 해결 확인**:
-- [ ] **버그 테스트 PASS**: 버그 캡처 테스트 통과
-- [ ] **수동 확인**: 원래 증상 해결됨
-- [ ] **재현 불가**: 동일 조건에서 버그 재현 안됨
+**Bug Resolution Confirmation**:
+- [ ] **Bug Test PASS**: Bug capture test passes
+- [ ] **Manual Confirmation**: Original symptom resolved
+- [ ] **Cannot Reproduce**: Bug cannot be reproduced under same conditions
 
-**회귀 방지**:
-- [ ] **기존 테스트 100% PASS**: 회귀 없음
-- [ ] **관련 기능 테스트**: 부수효과 없음
+**Regression Prevention**:
+- [ ] **All Existing Tests 100% PASS**: No regression
+- [ ] **Related Feature Tests**: No side effects
 
-**수정 품질**:
-- [ ] **최소 변경**: 필요한 부분만 수정
-- [ ] **명확한 수정**: 수정 의도가 명확함
-- [ ] **린트/포맷 통과**: 코드 스타일 유지
+**Fix Quality**:
+- [ ] **Minimal Change**: Only necessary parts modified
+- [ ] **Clear Fix**: Fix intent is clear
+- [ ] **Lint/Format Pass**: Code style maintained
 
 ---
 
-## 🛠️ 검증 명령어
+## 🛠️ Validation Commands
 
 ### Python/FastAPI (uv)
 ```bash
-# 특정 버그 테스트
+# Specific bug test
 uv run pytest tests/test_bug_fix.py -v
 
-# 전체 테스트
+# All tests
 uv run pytest --cov=src
 
-# 린트
+# Lint
 uv run ruff check .
 
-# 의존성 동기화
+# Sync dependencies
 uv sync
 ```
 
 ### TypeScript/React
 ```bash
-# 특정 버그 테스트
+# Specific bug test
 npm test -- --testPathPattern="bug-fix"
 
-# 전체 테스트
+# All tests
 npm test
 
-# 린트
+# Lint
 npm run lint
 ```
 
 ---
 
-## ⚠️ 주의사항
+## ⚠️ Cautions
 
-### 피해야 할 안티패턴
+### Anti-patterns to Avoid
 
-| 안티패턴 | 위험 | 대안 |
-|---------|------|------|
-| 추측으로 수정 | 다른 버그 유발 | 재현 & 분석 먼저 |
-| 테스트 없이 수정 | 회귀 버그 위험 | 테스트로 캡처 |
-| 과도한 수정 | 새 버그 유발 | 최소 변경 |
-| 증상만 수정 | 버그 재발 | 근본 원인 해결 |
+| Anti-pattern | Risk | Alternative |
+|--------------|------|-------------|
+| Fix by guessing | Causes other bugs | Reproduce & analyze first |
+| Fix without tests | Regression risk | Capture with test |
+| Excessive fix | Causes new bugs | Minimal change |
+| Fix symptom only | Bug recurrence | Fix root cause |
 
-### 수정 전 자문
+### Ask Yourself Before Fixing
 
-- "이것이 정말 근본 원인인가?"
-- "이 수정이 다른 곳에 영향을 주는가?"
-- "더 간단한 수정 방법이 있는가?"
-- "이 버그가 다른 곳에도 있을 수 있는가?"
+- "Is this really the root cause?"
+- "Does this fix affect other areas?"
+- "Is there a simpler fix?"
+- "Could this bug exist elsewhere?"
+
+---
+
+## 🧠 Codebase Context Awareness
+
+### CRITICAL: Before ANY Implementation
+
+```
+⚠️ STOP AND CHECK:
+
+1. □ Have I searched for SIMILAR implementations in this codebase?
+2. □ Am I using the SAME patterns as existing code?
+3. □ Have I checked HOW this is done elsewhere in the project?
+4. □ Am I being CONSISTENT with established conventions?
+```
+
+### Common Context Mistakes
+
+| Mistake | Example | Prevention |
+|---------|---------|------------|
+| **Ignoring existing patterns** | Using `axios` when project uses `fetch` | Search: `grep -r "fetch\|axios" src/` |
+| **Inconsistent naming** | `getUserData` when others use `fetchUser` | Check similar functions first |
+| **Different error handling** | Throwing when others return `Result` type | Look at adjacent functions |
+| **Wrong import paths** | `../utils` when project uses `@/utils` | Copy from existing imports |
+
+### Before Writing Code, Find Answers
+
+```markdown
+## Codebase Questions (Answer BEFORE coding)
+
+1. **Similar Feature Exists?**
+   → Search: "How is [similar feature] implemented?"
+   → File: [path to reference implementation]
+
+2. **Naming Convention?**
+   → Variables: camelCase / snake_case?
+   → Functions: get/fetch/retrieve?
+   → Files: kebab-case / PascalCase?
+
+3. **Error Handling Pattern?**
+   → Exceptions / Result type / Error codes?
+   → Where is error handling done?
+
+4. **Import Style?**
+   → Absolute (@/) or relative (../) paths?
+   → Named or default exports?
+```
+
+### Remembering Previous Context
+
+```
+⚠️ IN LONG SESSIONS, ALWAYS:
+
+1. Re-read what was implemented earlier in this session
+2. Check if current change conflicts with previous changes
+3. Verify consistency with code written 5+ messages ago
+4. Don't repeat a mistake that was already corrected
+```
+
+### Consistency Checklist
+
+```markdown
+Before completing ANY task:
+- [ ] My code follows the SAME pattern as similar existing code
+- [ ] My naming matches the project's naming conventions
+- [ ] My error handling matches how errors are handled elsewhere
+- [ ] My imports use the same style as other files
+- [ ] I haven't contradicted anything I implemented earlier
+```
 
 ---
 
 ## 📚 Supporting Files
-- [plan-template.md](plan-template.md) - 버그 수정 계획 템플릿
+- [plan-template.md](plan-template.md) - Bug Fix Plan Template

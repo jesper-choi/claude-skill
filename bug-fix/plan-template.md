@@ -8,301 +8,301 @@
 
 ---
 
-## ⚠️ CRITICAL: 버그 수정 원칙
+## ⚠️ CRITICAL: Bug Fix Principles
 
-> **🧠 핵심**: 추측하지 말고 확인하라. 증상이 아닌 원인을 해결하라.
+> **🧠 Core**: Verify, don't assume. Fix the cause, not the symptom.
 
-### 필수 준수 사항
-1. 🔍 **재현 우선**: 버그를 먼저 재현
-2. 🧪 **테스트 캡처**: 버그를 테스트로 캡처
-3. 🎯 **근본 원인**: 증상이 아닌 원인 해결
-4. ✂️ **최소 변경**: 필요한 최소한만 수정
-5. ✅ **회귀 방지**: 기존 테스트 100% 유지
+### Mandatory Requirements
+1. 🔍 **Reproduce First**: Reproduce the bug first
+2. 🧪 **Capture with Test**: Capture the bug with a test
+3. 🎯 **Root Cause**: Fix the cause, not the symptom
+4. ✂️ **Minimal Change**: Modify only the minimum necessary
+5. ✅ **Prevent Regression**: Maintain 100% existing tests
 
-### 수정 절차
-1. 버그 재현 → 2. 정보 수집 → 3. 근본 원인 분석 → 4. 테스트 작성 → 5. 수정 → 6. 검증
+### Fix Procedure
+1. Reproduce Bug → 2. Gather Info → 3. Root Cause Analysis → 4. Write Test → 5. Fix → 6. Verify
 
-⛔ **재현 없이 수정 시도 금지**
-⛔ **테스트 없이 수정 완료 금지**
+⛔ **NO fixing attempts without reproduction**
+⛔ **NO completing fix without tests**
 
 ---
 
 ## 🐛 Bug Description
 
-### 증상 (What)
-[사용자가 경험하는 문제 현상]
+### Symptom (What)
+[Problem phenomenon experienced by user]
 
-### 재현 단계 (How to Reproduce)
+### Reproduction Steps (How to Reproduce)
 1. [Step 1]
 2. [Step 2]
 3. [Step 3]
-4. 결과: [실제 결과]
+4. Result: [Actual result]
 
-### 기대 동작 (Expected)
-[정상적으로 동작해야 하는 방식]
+### Expected Behavior
+[How it should work correctly]
 
-### 실제 동작 (Actual)
-[현재 잘못된 동작]
+### Actual Behavior
+[Current incorrect behavior]
 
-### 영향 범위 (Impact)
-- **영향받는 사용자**: [범위]
-- **영향받는 기능**: [기능 목록]
-- **발생 빈도**: [항상/가끔/특정 조건]
-
----
-
-## 📊 수집한 정보
-
-### 에러 정보
-```
-[에러 메시지]
-```
-
-### 스택 트레이스
-```
-[스택 트레이스]
-```
-
-### 관련 로그
-```
-[관련 로그]
-```
-
-### 환경 정보
-| 항목 | 값 |
-|------|---|
-| 환경 | Dev/Staging/Production |
-| 브라우저/클라이언트 | [정보] |
-| OS | [정보] |
-| 버전 | [정보] |
-
-### 입력 데이터
-```
-[버그를 유발한 입력 데이터]
-```
+### Impact Scope
+- **Affected Users**: [Scope]
+- **Affected Features**: [Feature list]
+- **Frequency**: [Always/Sometimes/Specific conditions]
 
 ---
 
-## 🔍 코드 분석
+## 📊 Collected Information
 
-### 분석한 파일
-| 파일 경로 | 분석 내용 | 관련성 |
-|----------|----------|--------|
-| `path/to/file1` | [분석 내용] | 🔴 직접 관련 |
-| `path/to/file2` | [분석 내용] | 🟡 간접 관련 |
-
-### 실행 흐름 추적
+### Error Information
 ```
-1. [시작점]
-   ↓
-2. [중간 단계]
-   ↓
-3. [문제 발생 지점] ← 여기서 버그 발생
-   ↓
-4. [증상 발현]
+[Error message]
 ```
 
-### 의심 지점
-| 위치 | 의심 이유 | 검증 결과 |
-|------|----------|----------|
-| `file:line` | [왜 의심하는지] | ✅ 원인 / ❌ 아님 |
+### Stack Trace
+```
+[Stack trace]
+```
+
+### Related Logs
+```
+[Related logs]
+```
+
+### Environment Information
+| Item | Value |
+|------|-------|
+| Environment | Dev/Staging/Production |
+| Browser/Client | [Info] |
+| OS | [Info] |
+| Version | [Info] |
+
+### Input Data
+```
+[Input data that triggered the bug]
+```
 
 ---
 
-## 🎯 근본 원인 분석 (Root Cause Analysis)
+## 🔍 Code Analysis
 
-### 5 Whys 분석
+### Analyzed Files
+| File Path | Analysis Content | Relevance |
+|-----------|------------------|-----------|
+| `path/to/file1` | [Analysis content] | 🔴 Directly related |
+| `path/to/file2` | [Analysis content] | 🟡 Indirectly related |
+
+### Execution Flow Trace
 ```
-버그 증상: [증상]
-
-Why 1: 왜 [증상]이 발생하는가?
-→ [답변 1]
-
-Why 2: 왜 [답변 1]인가?
-→ [답변 2]
-
-Why 3: 왜 [답변 2]인가?
-→ [답변 3]
-
-Why 4: 왜 [답변 3]인가?
-→ [답변 4]
-
-Why 5: 왜 [답변 4]인가?
-→ [근본 원인] ← ROOT CAUSE
+1. [Starting point]
+   ↓
+2. [Intermediate step]
+   ↓
+3. [Problem point] ← Bug occurs here
+   ↓
+4. [Symptom manifestation]
 ```
 
-### 근본 원인 (확정)
+### Suspicious Points
+| Location | Reason for Suspicion | Verification Result |
+|----------|---------------------|---------------------|
+| `file:line` | [Why suspicious] | ✅ Cause / ❌ Not cause |
+
+---
+
+## 🎯 Root Cause Analysis (RCA)
+
+### 5 Whys Analysis
 ```
-[근본 원인에 대한 명확한 설명]
+Bug Symptom: [Symptom]
 
-문제 코드:
-[문제가 되는 코드 스니펫]
+Why 1: Why does [symptom] occur?
+→ [Answer 1]
 
-왜 문제인가:
-[문제인 이유]
+Why 2: Why [Answer 1]?
+→ [Answer 2]
+
+Why 3: Why [Answer 2]?
+→ [Answer 3]
+
+Why 4: Why [Answer 3]?
+→ [Answer 4]
+
+Why 5: Why [Answer 4]?
+→ [Root Cause] ← ROOT CAUSE
 ```
 
-### 수정 방향
+### Root Cause (Confirmed)
 ```
-[어떻게 수정할 것인지]
+[Clear explanation of root cause]
 
-수정 후 코드:
-[수정된 코드 스니펫]
+Problem Code:
+[Problematic code snippet]
 
-왜 이것이 해결책인가:
-[이 수정이 문제를 해결하는 이유]
+Why It's a Problem:
+[Reason why it's problematic]
+```
+
+### Fix Direction
+```
+[How to fix]
+
+Fixed Code:
+[Fixed code snippet]
+
+Why This Is the Solution:
+[Why this fix solves the problem]
 ```
 
 ---
 
 ## 🧪 Test Strategy
 
-### 버그 캡처 테스트
+### Bug Capture Test
 ```python
 # tests/test_bug_[issue_number].py
 
 def test_bug_[description]():
     """
-    Bug: [버그 설명]
-    Root Cause: [근본 원인]
+    Bug: [Bug description]
+    Root Cause: [Root cause]
     """
-    # Arrange: 버그 재현 조건 설정
+    # Arrange: Set up bug reproduction conditions
     [setup code]
     
-    # Act: 버그 유발 동작
+    # Act: Trigger bug-inducing action
     [action code]
     
-    # Assert: 올바른 동작 확인
+    # Assert: Verify correct behavior
     [assertion code]
 ```
 
-### 테스트 계획
-- [ ] **버그 캡처 테스트**: 이 버그를 정확히 재현하는 테스트
-- [ ] **경계 조건 테스트**: 유사한 경계 조건 테스트
-- [ ] **회귀 테스트**: 기존 테스트 모두 통과
+### Test Plan
+- [ ] **Bug Capture Test**: Test that exactly reproduces this bug
+- [ ] **Boundary Condition Test**: Similar boundary condition tests
+- [ ] **Regression Test**: All existing tests pass
 
 ---
 
 ## 🚀 Fix Implementation
 
-### Phase 1: 재현 & 분석
-**Goal**: 버그 재현 및 근본 원인 파악
+### Phase 1: Reproduce & Analyze
+**Goal**: Reproduce bug and identify root cause
 **Status**: ⏳ Pending | 🔄 In Progress | ✅ Complete
 
 #### Tasks
-- [ ] **Task 1.1**: 버그 재현
-  - 재현 성공 여부: ⏳
-  - 재현 조건: [조건]
+- [ ] **Task 1.1**: Reproduce bug
+  - Reproduction success: ⏳
+  - Reproduction conditions: [Conditions]
 
-- [ ] **Task 1.2**: 정보 수집
-  - 에러 메시지: ⏳
-  - 스택 트레이스: ⏳
-  - 관련 로그: ⏳
+- [ ] **Task 1.2**: Gather information
+  - Error message: ⏳
+  - Stack trace: ⏳
+  - Related logs: ⏳
 
-- [ ] **Task 1.3**: 코드 분석
-  - 분석한 파일: [파일 목록]
-  - 실행 흐름 추적: ⏳
+- [ ] **Task 1.3**: Code analysis
+  - Analyzed files: [File list]
+  - Execution flow trace: ⏳
 
-- [ ] **Task 1.4**: 근본 원인 확정
-  - 근본 원인: [원인]
-  - 확신도: High/Medium/Low
+- [ ] **Task 1.4**: Confirm root cause
+  - Root cause: [Cause]
+  - Confidence: High/Medium/Low
 
 #### ✋ Phase 1 Gate
-- [ ] 버그 재현 성공
-- [ ] 근본 원인 확정
-- [ ] 수정 방향 결정
+- [ ] Bug reproduction successful
+- [ ] Root cause confirmed
+- [ ] Fix direction decided
 
 ---
 
-### Phase 2: 테스트 & 수정
-**Goal**: 테스트로 버그 캡처 후 수정
+### Phase 2: Test & Fix
+**Goal**: Capture bug with test then fix
 **Status**: ⏳ Pending | 🔄 In Progress | ✅ Complete
 
 #### Tasks
-- [ ] **Task 2.1**: 버그 캡처 테스트 작성
+- [ ] **Task 2.1**: Write bug capture test
   - File: `tests/[path]/test_bug_[name].py`
-  - Expected: 테스트 FAIL (버그 재현)
+  - Expected: Test FAIL (reproduces bug)
 
-- [ ] **Task 2.2**: 테스트 실행 → FAIL 확인
+- [ ] **Task 2.2**: Run test → Confirm FAIL
   ```bash
-  [테스트 실행 명령어]
+  [Test execution command]
   ```
-  - 결과: ⏳ FAIL 확인
+  - Result: ⏳ FAIL confirmed
 
-- [ ] **Task 2.3**: 최소 수정 적용
-  - File: `[수정할 파일]`
-  - 변경 내용: [변경 설명]
-  - 변경 라인 수: [최소화]
+- [ ] **Task 2.3**: Apply minimal fix
+  - File: `[File to modify]`
+  - Change content: [Change description]
+  - Lines changed: [Minimize]
 
-- [ ] **Task 2.4**: 테스트 실행 → PASS 확인
+- [ ] **Task 2.4**: Run test → Confirm PASS
   ```bash
-  [테스트 실행 명령어]
+  [Test execution command]
   ```
-  - 결과: ⏳ PASS 확인
+  - Result: ⏳ PASS confirmed
 
 #### ✋ Phase 2 Gate
-- [ ] 버그 캡처 테스트 PASS
-- [ ] 기존 테스트 100% PASS
-- [ ] 수정이 최소한인가 확인
+- [ ] Bug capture test PASS
+- [ ] All existing tests 100% PASS
+- [ ] Verified fix is minimal
 
 ---
 
-### Phase 3: 검증 & 완료
-**Goal**: 수동 검증 및 유사 버그 검토
+### Phase 3: Verify & Complete
+**Goal**: Manual verification and similar bug review
 **Status**: ⏳ Pending | 🔄 In Progress | ✅ Complete
 
 #### Tasks
-- [ ] **Task 3.1**: 수동 검증
-  - 원래 재현 단계로 테스트: ⏳
-  - 버그 해결 확인: ⏳
+- [ ] **Task 3.1**: Manual verification
+  - Test with original reproduction steps: ⏳
+  - Bug resolution confirmed: ⏳
 
-- [ ] **Task 3.2**: 관련 기능 테스트
-  - 영향받는 기능 테스트: ⏳
-  - 부수효과 없음 확인: ⏳
+- [ ] **Task 3.2**: Related feature test
+  - Affected feature test: ⏳
+  - No side effects confirmed: ⏳
 
-- [ ] **Task 3.3**: 유사 버그 검토
-  - 같은 패턴이 다른 곳에 있는가? [있음/없음]
-  - 추가 수정 필요: [있음/없음]
+- [ ] **Task 3.3**: Similar bug review
+  - Same pattern exists elsewhere? [Yes/No]
+  - Additional fix needed: [Yes/No]
 
-- [ ] **Task 3.4**: 문서화
-  - 버그 원인 기록: ⏳
-  - 예방책 기록: ⏳
+- [ ] **Task 3.4**: Documentation
+  - Bug cause recorded: ⏳
+  - Prevention measures recorded: ⏳
 
 #### ✋ Phase 3 Gate
-- [ ] 수동 검증 완료
-- [ ] 유사 버그 검토 완료
-- [ ] 문서화 완료
+- [ ] Manual verification complete
+- [ ] Similar bug review complete
+- [ ] Documentation complete
 
 ---
 
 ## ✋ Final Quality Gate
 
-### 버그 해결 확인
-- [ ] **버그 테스트 PASS**: 버그 캡처 테스트 통과
-- [ ] **수동 확인**: 원래 증상 해결됨
-- [ ] **재현 불가**: 동일 조건에서 버그 재현 안됨
+### Bug Resolution Confirmation
+- [ ] **Bug Test PASS**: Bug capture test passes
+- [ ] **Manual Confirmation**: Original symptom resolved
+- [ ] **Cannot Reproduce**: Bug cannot be reproduced under same conditions
 
-### 회귀 방지
-- [ ] **기존 테스트 100% PASS**
-- [ ] **관련 기능 정상 동작**
-- [ ] **성능 영향 없음**
+### Regression Prevention
+- [ ] **All Existing Tests 100% PASS**
+- [ ] **Related Features Work Normally**
+- [ ] **No Performance Impact**
 
-### 코드 품질
-- [ ] **최소 변경**: 필요한 부분만 수정됨
-- [ ] **린트 통과**: 코드 스타일 유지
-- [ ] **명확한 수정**: 수정 의도가 명확함
+### Code Quality
+- [ ] **Minimal Change**: Only necessary parts modified
+- [ ] **Lint Pass**: Code style maintained
+- [ ] **Clear Fix**: Fix intent is clear
 
 ### Validation Commands
 ```bash
 # Python/FastAPI (uv)
-uv run pytest tests/test_bug_*.py -v  # 버그 테스트
-uv run pytest  # 전체 테스트
+uv run pytest tests/test_bug_*.py -v  # Bug tests
+uv run pytest  # All tests
 uv run ruff check .
-uv sync  # 의존성 동기화
+uv sync  # Sync dependencies
 
 # TypeScript/React
-npm test -- --testPathPattern="bug"  # 버그 테스트
-npm test  # 전체 테스트
+npm test -- --testPathPattern="bug"  # Bug tests
+npm test  # All tests
 npm run lint
 ```
 
@@ -310,31 +310,31 @@ npm run lint
 
 ## 📝 Notes & Learnings
 
-### 버그 원인 요약
+### Bug Cause Summary
 ```
-[근본 원인 한 줄 요약]
+[One-line summary of root cause]
 ```
 
-### 예방책
-- [이런 버그를 예방하려면]
-- [추가할 테스트/검증]
-- [코드 리뷰 시 확인할 점]
+### Prevention Measures
+- [How to prevent this type of bug]
+- [Tests/validations to add]
+- [Things to check during code review]
 
-### 유사 버그 가능성
-- [같은 패턴이 있는 다른 위치]
-- [추가 검토 필요한 부분]
+### Similar Bug Possibilities
+- [Other locations with same pattern]
+- [Areas needing additional review]
 
-### 배운 점
-- [이 버그를 통해 배운 점]
+### Lessons Learned
+- [What was learned from this bug]
 
 ---
 
 ## 🔄 Rollback Strategy
 
 ### If Fix Causes Issues
-- [ ] 수정 커밋 revert
-- [ ] 기존 상태 복원
-- [ ] 다시 분석 시작
+- [ ] Revert fix commit
+- [ ] Restore previous state
+- [ ] Start analysis again
 
 ---
 
@@ -342,14 +342,14 @@ npm run lint
 
 | Phase | Status | Time Spent |
 |-------|--------|------------|
-| Phase 1: 재현 & 분석 | ⏳ | - |
-| Phase 2: 테스트 & 수정 | ⏳ | - |
-| Phase 3: 검증 & 완료 | ⏳ | - |
+| Phase 1: Reproduce & Analyze | ⏳ | - |
+| Phase 2: Test & Fix | ⏳ | - |
+| Phase 3: Verify & Complete | ⏳ | - |
 
-**Total Time**: - 시간
+**Total Time**: - hours
 
 ---
 
 **Bug Status**: 🔄 In Progress
-**Next Action**: [다음 작업]
-**Blocked By**: [현재 블로커] or None
+**Next Action**: [Next task]
+**Blocked By**: [Current blocker] or None

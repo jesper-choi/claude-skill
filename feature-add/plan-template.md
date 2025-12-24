@@ -8,35 +8,35 @@
 
 ---
 
-## ⚠️ CRITICAL: 기능 추가 원칙
+## ⚠️ CRITICAL: Feature Addition Principles
 
-> **🧠 핵심**: 기존 코드를 존중하라. 패턴을 따르라. 점진적으로 통합하라.
+> **🧠 Core**: Respect existing code. Follow patterns. Integrate incrementally.
 
-### 필수 준수 사항
-1. 📖 **코드 분석 우선**: 유사 기능 코드 먼저 읽기
-2. 🔄 **패턴 재사용**: 기존 패턴과 유틸리티 활용
-3. 🧪 **TDD 엄수**: 테스트 먼저, 구현 나중
-4. ✅ **회귀 방지**: 기존 테스트 100% 통과 유지
-5. 🎯 **점진적 통합**: 작은 단위로 나누어 안전하게
+### Mandatory Requirements
+1. 📖 **Analyze Code First**: Read similar feature code first
+2. 🔄 **Reuse Patterns**: Leverage existing patterns and utilities
+3. 🧪 **Strict TDD**: Tests first, implementation later
+4. ✅ **Prevent Regression**: Maintain 100% existing test pass rate
+5. 🎯 **Incremental Integration**: Break into small units for safety
 
-### 각 페이즈 완료 후
-1. ✅ 기존 테스트 모두 통과 확인
-2. ✅ 새 테스트 모두 통과 확인
-3. 🧪 Quality Gate 검증 실행
-4. 📝 Notes에 학습 내용 기록
-5. ➡️ 검증 완료 후에만 다음 페이즈
+### After Each Phase Completion
+1. ✅ Verify all existing tests pass
+2. ✅ Verify all new tests pass
+3. 🧪 Run Quality Gate verification
+4. 📝 Record learnings in Notes
+5. ➡️ Proceed to next phase only after verification complete
 
-⛔ **기존 테스트 실패 시 절대 진행 금지**
+⛔ **DO NOT proceed if existing tests fail**
 
 ---
 
 ## 📋 Overview
 
 ### Feature Description
-[추가할 기능 설명]
+[Description of feature to add]
 
 ### Why This Feature?
-[이 기능이 필요한 이유]
+[Why this feature is needed]
 
 ### Success Criteria
 - [ ] Criterion 1
@@ -44,177 +44,177 @@
 - [ ] Criterion 3
 
 ### User Impact
-[사용자에게 어떤 이점이 있는지]
+[What benefits users will receive]
 
 ---
 
-## 🔍 코드베이스 분석 (작업 시작 전 필수)
+## 🔍 Codebase Analysis (Required Before Starting)
 
-### 유사 기능 분석
-| 기존 기능 | 파일 경로 | 참고할 패턴 |
-|----------|----------|------------|
-| [기존 기능 1] | `path/to/file` | [이 기능에서 참고할 점] |
-| [기존 기능 2] | `path/to/file` | [이 기능에서 참고할 점] |
+### Similar Feature Analysis
+| Existing Feature | File Path | Patterns to Reference |
+|------------------|-----------|----------------------|
+| [Existing feature 1] | `path/to/file` | [What to reference from this feature] |
+| [Existing feature 2] | `path/to/file` | [What to reference from this feature] |
 
-### 재사용 가능한 코드
-| 코드 | 파일 경로 | 용도 |
-|------|----------|------|
-| [유틸리티/헬퍼] | `path/to/file` | [어떻게 사용할지] |
-| [기존 컴포넌트] | `path/to/file` | [어떻게 사용할지] |
+### Reusable Code
+| Code | File Path | Purpose |
+|------|-----------|---------|
+| [Utility/Helper] | `path/to/file` | [How to use] |
+| [Existing component] | `path/to/file` | [How to use] |
 
-### 기존 아키텍처 패턴
-- **레이어 구조**: [현재 사용 중인 레이어]
-- **의존성 주입**: [DI 패턴]
-- **에러 처리**: [에러 처리 패턴]
-- **테스트 구조**: [테스트 조직 방식]
+### Existing Architecture Patterns
+- **Layer Structure**: [Currently used layers]
+- **Dependency Injection**: [DI pattern]
+- **Error Handling**: [Error handling pattern]
+- **Test Structure**: [Test organization method]
 
-### 영향 범위 분석
-- **수정할 파일**: [직접 수정이 필요한 파일]
-- **영향받는 파일**: [간접적으로 영향받는 파일]
-- **테스트 영향**: [수정/추가가 필요한 테스트]
+### Impact Scope Analysis
+- **Files to Modify**: [Files requiring direct modification]
+- **Affected Files**: [Indirectly affected files]
+- **Test Impact**: [Tests requiring modification/addition]
 
 ---
 
 ## 🏗️ Architecture Decisions
 
-### Clean Architecture 적용
+### Clean Architecture Application
 ```
-이 기능의 레이어 구조:
+Layer structure for this feature:
 
-Presentation: [API/UI 컴포넌트]
+Presentation: [API/UI components]
      ↓
 Application: [Use Cases/Services]
      ↓
 Domain: [Entities/Interfaces]
      ↓
-Infrastructure: [Repository 구현/외부 연동]
+Infrastructure: [Repository implementations/External integrations]
 ```
 
-### SOLID 적용 계획
-- [ ] **S**: 각 클래스/함수 단일 책임 부여
-- [ ] **O**: 기존 코드 수정 대신 확장으로 구현
-- [ ] **L**: 기존 인터페이스 계약 준수
-- [ ] **I**: 필요한 인터페이스만 정의
-- [ ] **D**: 추상화에 의존, 의존성 주입 사용
+### SOLID Application Plan
+- [ ] **S**: Assign single responsibility to each class/function
+- [ ] **O**: Implement through extension instead of modifying existing code
+- [ ] **L**: Comply with existing interface contracts
+- [ ] **I**: Define only necessary interfaces
+- [ ] **D**: Depend on abstractions, use dependency injection
 
-### 주요 설계 결정
+### Key Design Decisions
 
-| Decision | Rationale | 기존 패턴과의 관계 |
-|----------|-----------|------------------|
-| [결정 1] | [이유] | [기존 패턴 따름/확장] |
-| [결정 2] | [이유] | [기존 패턴 따름/확장] |
+| Decision | Rationale | Relationship to Existing Patterns |
+|----------|-----------|-----------------------------------|
+| [Decision 1] | [Reason] | [Following/Extending existing pattern] |
+| [Decision 2] | [Reason] | [Following/Extending existing pattern] |
 
 ---
 
 ## 📦 Dependencies
 
-### 기존 코드 의존성
-- [ ] `module/path`: [사용 목적]
-- [ ] `module/path`: [사용 목적]
+### Existing Code Dependencies
+- [ ] `module/path`: [Usage purpose]
+- [ ] `module/path`: [Usage purpose]
 
-### 새로운 외부 의존성 (최소화)
-- Package 1: version X.Y.Z - [필요 이유]
+### New External Dependencies (Minimize)
+- Package 1: version X.Y.Z - [Why needed]
 
 ---
 
 ## 🧪 Test Strategy
 
-### TDD 원칙
-**테스트를 먼저 작성하고, 테스트가 통과하도록 구현한다.**
+### TDD Principle
+**Write tests first, then implement to make tests pass.**
 
-### 기존 테스트 패턴 따르기
+### Following Existing Test Patterns
 ```
-기존 테스트 구조:
+Existing test structure:
 tests/
 ├── unit/
-│   └── [기존 패턴 따름]
+│   └── [Follow existing pattern]
 ├── integration/
-│   └── [기존 패턴 따름]
+│   └── [Follow existing pattern]
 └── e2e/
-    └── [기존 패턴 따름]
+    └── [Follow existing pattern]
 ```
 
-### 이 기능의 테스트 계획
-| Test Type | 대상 | Coverage Target |
-|-----------|------|-----------------|
-| Unit | [비즈니스 로직] | ≥80% |
-| Integration | [컴포넌트 통합] | Critical paths |
-| E2E | [사용자 흐름] | Main flow |
+### Test Plan for This Feature
+| Test Type | Target | Coverage Target |
+|-----------|--------|-----------------|
+| Unit | [Business logic] | ≥80% |
+| Integration | [Component integration] | Critical paths |
+| E2E | [User flow] | Main flow |
 
 ---
 
 ## 🚀 Implementation Phases
 
-### Phase 1: [Foundation - 기반 구조]
-**Goal**: [이 페이즈에서 완성되는 동작 기능]
-**Estimated Time**: X시간
+### Phase 1: [Foundation - Base Structure]
+**Goal**: [Working feature completed in this phase]
+**Estimated Time**: X hours
 **Status**: ⏳ Pending | 🔄 In Progress | ✅ Complete
 
-#### 📖 코드 분석 (구현 전 필수)
-- [ ] 유사 기능 코드 읽기 완료
-- [ ] 재사용할 코드 식별 완료
-- [ ] 기존 패턴 파악 완료
+#### 📖 Code Analysis (Required Before Implementation)
+- [ ] Similar feature code reading complete
+- [ ] Reusable code identified
+- [ ] Existing patterns understood
 
-참고한 기존 코드:
-- `path/to/similar/feature`: [참고한 패턴]
-- `path/to/utility`: [재사용할 코드]
+Referenced existing code:
+- `path/to/similar/feature`: [Referenced pattern]
+- `path/to/utility`: [Code to reuse]
 
-#### 🔴 RED: 실패하는 테스트 작성
-- [ ] **Test 1.1**: [기능] 유닛 테스트
+#### 🔴 RED: Write Failing Tests
+- [ ] **Test 1.1**: [Feature] unit test
   - File: `tests/unit/[feature]/test_[component].py`
-  - 기존 테스트 패턴 참고: `tests/unit/[similar]/test_*.py`
-  - 테스트 케이스:
+  - Reference existing test pattern: `tests/unit/[similar]/test_*.py`
+  - Test cases:
     - Happy path
     - Edge cases
     - Error conditions
 
-- [ ] **Test 1.2**: [통합] 테스트
+- [ ] **Test 1.2**: [Integration] test
   - File: `tests/integration/test_[feature].py`
 
-#### 🟢 GREEN: 테스트 통과 구현
-- [ ] **Task 1.3**: [컴포넌트] 구현
+#### 🟢 GREEN: Implement to Pass Tests
+- [ ] **Task 1.3**: [Component] implementation
   - File: `src/[layer]/[component].py`
-  - 기존 패턴 따름: `src/[layer]/[similar].py`
-  - 재사용: [기존 유틸리티/헬퍼]
+  - Following existing pattern: `src/[layer]/[similar].py`
+  - Reusing: [existing utilities/helpers]
 
-- [ ] **Task 1.4**: [연결 코드] 구현
+- [ ] **Task 1.4**: [Connection code] implementation
   - File: `src/[layer]/[integration].py`
 
-#### 🔵 REFACTOR: 품질 개선
-- [ ] **Task 1.5**: 리팩토링
-  - [ ] 중복 코드 제거
-  - [ ] 기존 코드와 일관성 확인
-  - [ ] 네이밍 개선
+#### 🔵 REFACTOR: Quality Improvement
+- [ ] **Task 1.5**: Refactoring
+  - [ ] Remove duplicate code
+  - [ ] Verify consistency with existing code
+  - [ ] Improve naming
 
 #### ✋ Quality Gate
 
-**⚠️ STOP: 모든 항목 통과 전 Phase 2 진행 금지**
+**⚠️ STOP: DO NOT proceed to Phase 2 until all items pass**
 
-**기존 코드 영향**:
-- [ ] **기존 테스트 100% 통과**: 회귀 없음
-- [ ] **기존 기능 동작 확인**: 수동 테스트
+**Existing Code Impact**:
+- [ ] **Existing Tests 100% Pass**: No regression
+- [ ] **Existing Features Work**: Manual test confirmed
 
-**TDD 준수**:
-- [ ] **RED**: 테스트 먼저 작성, 실패 확인
-- [ ] **GREEN**: 테스트 통과 최소 구현
-- [ ] **REFACTOR**: 품질 개선, 테스트 유지
+**TDD Compliance**:
+- [ ] **RED**: Tests written first, failure confirmed
+- [ ] **GREEN**: Minimal implementation to pass tests
+- [ ] **REFACTOR**: Quality improved while maintaining tests
 
-**일관성**:
-- [ ] **패턴 준수**: 기존 아키텍처 패턴 따름
-- [ ] **네이밍**: 기존 컨벤션 따름
-- [ ] **스타일**: 린트/포맷 통과
+**Consistency**:
+- [ ] **Pattern Compliance**: Following existing architecture patterns
+- [ ] **Naming**: Following existing conventions
+- [ ] **Style**: Lint/format pass
 
 **Validation Commands**:
 ```bash
 # Python/FastAPI (uv)
-uv run pytest  # 전체 테스트 (기존 + 신규)
+uv run pytest  # All tests (existing + new)
 uv run pytest --cov=src --cov-report=term-missing
 uv run ruff check . && uv run ruff format --check .
 uv run mypy src/
-uv sync  # 의존성 동기화
+uv sync  # Sync dependencies
 
 # TypeScript/React
-npm test  # 전체 테스트
+npm test  # All tests
 npm run lint && npm run format:check
 npx tsc --noEmit
 npm run build
@@ -222,37 +222,37 @@ npm run build
 
 ---
 
-### Phase 2: [Core Logic - 핵심 로직]
-**Goal**: [구체적 결과물]
-**Estimated Time**: X시간
+### Phase 2: [Core Logic]
+**Goal**: [Specific deliverable]
+**Estimated Time**: X hours
 **Status**: ⏳ Pending | 🔄 In Progress | ✅ Complete
 
-#### 📖 코드 분석
-- [ ] Phase 1 결과물 검토
-- [ ] 추가 참고 코드 분석
+#### 📖 Code Analysis
+- [ ] Review Phase 1 results
+- [ ] Analyze additional reference code
 
 #### 🔴 RED / 🟢 GREEN / 🔵 REFACTOR
-[Phase 1과 동일한 구조]
+[Same structure as Phase 1]
 
 #### ✋ Quality Gate
-[Phase 1과 동일한 체크리스트]
+[Same checklist as Phase 1]
 
 ---
 
-### Phase 3: [Integration - 통합]
-**Goal**: [구체적 결과물]
-**Estimated Time**: X시간
+### Phase 3: [Integration]
+**Goal**: [Specific deliverable]
+**Estimated Time**: X hours
 **Status**: ⏳ Pending | 🔄 In Progress | ✅ Complete
 
-#### 📖 코드 분석
-- [ ] 전체 통합 영향 분석
-- [ ] E2E 시나리오 확인
+#### 📖 Code Analysis
+- [ ] Analyze full integration impact
+- [ ] Verify E2E scenarios
 
 #### 🔴 RED / 🟢 GREEN / 🔵 REFACTOR
-[이전 Phase와 동일]
+[Same as previous Phases]
 
 #### ✋ Quality Gate
-[Phase 1과 동일 + 통합 테스트 추가]
+[Same as Phase 1 + integration tests added]
 
 ---
 
@@ -260,23 +260,23 @@ npm run build
 
 | Risk | Probability | Impact | Mitigation |
 |------|-------------|--------|------------|
-| 기존 기능 회귀 | Medium | High | 기존 테스트 100% 유지, 수동 테스트 |
-| 패턴 불일치 | Low | Medium | 기존 코드 철저히 분석 |
-| 성능 영향 | Low | Medium | 벤치마크 테스트 |
-| 복잡도 증가 | Medium | Medium | 단순함 원칙, 리팩토링 |
+| Existing feature regression | Medium | High | Maintain 100% existing tests, manual testing |
+| Pattern mismatch | Low | Medium | Thorough existing code analysis |
+| Performance impact | Low | Medium | Benchmark testing |
+| Complexity increase | Medium | Medium | Simplicity principle, refactoring |
 
 ---
 
 ## 🔄 Rollback Strategy
 
 ### If Phase 1 Fails
-- [ ] 새 파일 삭제
-- [ ] 기존 파일 변경 취소
-- [ ] 의존성 제거
+- [ ] Delete new files
+- [ ] Revert existing file changes
+- [ ] Remove dependencies
 
 ### If Phase 2/3 Fails
-- [ ] 이전 Phase 상태로 복원
-- [ ] 관련 변경 취소
+- [ ] Restore to previous Phase state
+- [ ] Revert related changes
 
 ---
 
@@ -290,40 +290,40 @@ npm run build
 ### Time Tracking
 | Phase | Estimated | Actual | Variance |
 |-------|-----------|--------|----------|
-| Phase 1 | X시간 | - | - |
-| Phase 2 | X시간 | - | - |
-| Phase 3 | X시간 | - | - |
+| Phase 1 | X hours | - | - |
+| Phase 2 | X hours | - | - |
+| Phase 3 | X hours | - | - |
 
 ---
 
 ## 📝 Notes & Learnings
 
-### 기존 코드에서 배운 점
-- [기존 패턴에서 배운 점]
-- [재사용한 코드]
+### Lessons from Existing Code
+- [What learned from existing patterns]
+- [Code reused]
 
 ### Implementation Notes
-- [구현 중 발견한 인사이트]
-- [변경된 결정 사항]
+- [Insights discovered during implementation]
+- [Changed decisions]
 
 ### Blockers
-- **Blocker 1**: [설명] → [해결]
+- **Blocker 1**: [Description] → [Resolution]
 
 ---
 
 ## ✅ Final Checklist
 
-**완료 전 최종 확인**:
-- [ ] 모든 기존 테스트 통과
-- [ ] 모든 새 테스트 통과
-- [ ] 기존 기능 수동 테스트 완료
-- [ ] 새 기능 수동 테스트 완료
-- [ ] 성능 영향 없음 확인
-- [ ] 기존 패턴과 일관성 확인
-- [ ] 문서 업데이트
+**Final Verification Before Completion**:
+- [ ] All existing tests pass
+- [ ] All new tests pass
+- [ ] Manual testing of existing features complete
+- [ ] Manual testing of new features complete
+- [ ] No performance impact confirmed
+- [ ] Consistency with existing patterns verified
+- [ ] Documentation updated
 
 ---
 
 **Plan Status**: 🔄 In Progress
-**Next Action**: [다음 작업]
-**Blocked By**: [현재 블로커] or None
+**Next Action**: [Next task]
+**Blocked By**: [Current blocker] or None
